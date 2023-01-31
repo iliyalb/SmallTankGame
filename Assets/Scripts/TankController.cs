@@ -118,11 +118,11 @@ public class TankController : MonoBehaviour
 
     private void ResetOrExit()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("View") || Input.GetButtonDown("Select"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start"))
         {
             Application.Quit();
         }
