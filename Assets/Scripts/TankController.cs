@@ -16,15 +16,15 @@ public class TankController : MonoBehaviour
 
     private Animator _anim;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         _anim = this.GetComponent<Animator>();
         _mainCamera = Camera.main;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (GameControl.GameControlInstance.IsGameEnded)
         {
@@ -75,17 +75,17 @@ public class TankController : MonoBehaviour
 
     }
 
-    
+
     private void ShootBullet(Bullet bullet)
     {
         AudioManager.AudioManagerInstance.PlayAudio(0);
-        _anim.SetInteger("ShootNumber" , UnityEngine.Random.Range(1,5));
+        _anim.SetInteger("ShootNumber", UnityEngine.Random.Range(1, 5));
         _anim.SetTrigger("Shoot");
         bullet.transform.position = BulletSpawnPoint.transform.position;
         bullet.transform.LookAt(BulletSpawnPoint.transform.forward * 100);
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * BulletForce, ForceMode.Force);
     }
 
-   
+
 
 }
